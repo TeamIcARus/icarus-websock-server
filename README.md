@@ -1,4 +1,5 @@
 # icarus-websock-server
+license BSD 2.0\n
 It republishes the ROS topics in rosbridge protocol by just a shellscript command.
 requirements
 ・node.js(npm)
