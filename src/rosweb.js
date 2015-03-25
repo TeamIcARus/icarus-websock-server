@@ -1,4 +1,5 @@
 var read=require("./read.js");
+var ROSLIB = require("./roslib.min.js");
 
 //Establishing Connection
 
@@ -20,17 +21,17 @@ ros.on('close', function() {
 
 //registering ROS topics
 
-var rostopics = [];
+var rostopics = new Array(read.topic_len);
 
 for(var i =0; i < read.topics_len; i++){
-    var rostopics[i] = new ROSLIB.Topic({
+    rostopics[i] = new ROSLIB.Topic({
 	ros:ros,
 	name:read.topics[i],
 	messageType:read.types[i]
     });
 }
 
-var rosdata = [];
+var rosdata = new Array(read.topic_len);
 
 //Subscribing ROS topics
 for(var i =0; i < read.topics_len; i++){
