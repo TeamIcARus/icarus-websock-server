@@ -14,7 +14,6 @@ fs.readFile(type_path,function(err,data){
     exports.types=data.toString().split('\n');
     console.log("reading"+type_path);
 });
-
 module.exports = {
   topics : topics,
   topics_len :topics_len,

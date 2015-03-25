@@ -1,8 +1,11 @@
 //modules
 var read=require("./read.js");
-var ROSLIB = require("./roslib.min.js");
-var EventEmitter2 = require("./eventemitter2.min.js");
+console.log("reading roslibjs");
+var ROSLIB = require("./roslibjs/src/RosLib.js");
+console.log("reading eventemitter");
+var EventEmitter2 = require("./roslibjs/include/EventEmitter2/eventemitter2.js");
 var async = require("async");
+console.log("reading async");
 //variables
 var rostopics = new Array(read.topic_len);
 var rosdata = new Array(read.topic_len);
