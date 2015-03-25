@@ -1,6 +1,11 @@
+//modules
 var read=require("./read.js");
 var ROSLIB = require("./roslib.min.js");
-
+var EventEmitter2 = require("./eventemitter2.min.js");
+var async = require("async");
+//variables
+var rostopics = new Array(read.topic_len);
+var rosdata = new Array(read.topic_len);
 //Establishing Connection
 
 var ros=new ROSLIB.Ros({
@@ -18,11 +23,7 @@ ros.on('error', function(error) {
 ros.on('close', function() {
    console.log('Connection to websocket server closed.');
 });
-
 //registering ROS topics
-
-var rostopics = new Array(read.topic_len);
-
 for(var i =0; i < read.topics_len; i++){
     rostopics[i] = new ROSLIB.Topic({
 	ros:ros,
@@ -30,9 +31,6 @@ for(var i =0; i < read.topics_len; i++){
 	messageType:read.types[i]
     });
 }
-
-var rosdata = new Array(read.topic_len);
-
 //Subscribing ROS topics
 for(var i =0; i < read.topics_len; i++){
     rostopics[i].subscribe(function(message){
@@ -40,7 +38,6 @@ for(var i =0; i < read.topics_len; i++){
 	console.log("subscribing "+rostopics[i]);
     });
 }    
-
 //Republishing ROS topics(websocket packet parsing)
 for(var i=0; i < read.topics_len; i++){
     rostopics[i].publish(rosdata[i]);
