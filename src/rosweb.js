@@ -11,7 +11,7 @@ var rostopics = new Array(read.topic_len);
 var rosdata = new Array(read.topic_len);
 //Establishing Connection
 
-var ros=new ROSLIB.Ros({
+var ros = ROSLIB.Ros({
     url: 'ws://localhost:9090'
 });
 
