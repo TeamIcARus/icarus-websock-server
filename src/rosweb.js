@@ -1,5 +1,5 @@
 //modules
-var read=require("./readtopic.js");
+var read=require("./read.js");
 console.log("reading roslibjs");
 var ROSLIB = require("./roslibjs/src/RosLibNode.js");
 var async = require("async");

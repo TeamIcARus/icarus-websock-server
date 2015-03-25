@@ -15,6 +15,12 @@
 /ardrone/camera_info
 /ardrone/front/camera_info
 /ardrone/front/image_raw
+/ardrone/front/image_raw/compressed
+/ardrone/front/image_raw/compressed/parameter_descriptions
+/ardrone/front/image_raw/compressed/parameter_updates
+/ardrone/front/image_raw/compressedDepth
+/ardrone/front/image_raw/compressedDepth/parameter_descriptions
+/ardrone/front/image_raw/compressedDepth/parameter_updates
 /ardrone/front/image_raw/theora
 /ardrone/front/image_raw/theora/parameter_descriptions
 /ardrone/front/image_raw/theora/parameter_updates
@@ -33,10 +39,13 @@
 /ardrone/imu
 /ardrone/land
 /ardrone/navdata
+/ardrone/predictedPose
 /ardrone/reset
 /ardrone/takeoff
 /clock
 /cmd_vel
+/drone_stateestimation/parameter_descriptions
+/drone_stateestimation/parameter_updates
 /fix
 /fix_velocity
 /gazebo/link_states
@@ -53,3 +62,4 @@
 /rosout_agg
 /sonar_height
 /tf
+/tum_ardrone/com

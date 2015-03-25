@@ -14,7 +14,7 @@ fs.readFile(topic_path,function(err,data){
     }
 });
 fs.readFile(type_path,function(err,data){
-    exports.types=data.toString().split('\n');
+    types=data.toString().split('\n');
     console.log("reading"+type_path);
     for(var i =0; i < topics_len; i++){
     console.log(types[i]);

@@ -15,6 +15,12 @@ dynamic_reconfigure/Config
 sensor_msgs/CameraInfo
 sensor_msgs/CameraInfo
 sensor_msgs/Image
+sensor_msgs/CompressedImage
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+sensor_msgs/CompressedImage
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
 theora_image_transport/Packet
 dynamic_reconfigure/ConfigDescription
 dynamic_reconfigure/Config
@@ -33,10 +39,13 @@ dynamic_reconfigure/Config
 sensor_msgs/Imu
 std_msgs/Empty
 ardrone_autonomy/Navdata
+tum_ardrone/filter_state
 std_msgs/Empty
 std_msgs/Empty
 rosgraph_msgs/Clock
 geometry_msgs/Twist
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
 sensor_msgs/NavSatFix
 geometry_msgs/Vector3Stamped
 gazebo_msgs/LinkStates
@@ -53,3 +62,4 @@ rosgraph_msgs/Log
 rosgraph_msgs/Log
 sensor_msgs/Range
 tf2_msgs/TFMessage
+std_msgs/String
