@@ -4,6 +4,9 @@ sensor_msgs/Image
 sensor_msgs/CompressedImage
 dynamic_reconfigure/ConfigDescription
 dynamic_reconfigure/Config
+sensor_msgs/CompressedImage
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
 theora_image_transport/Packet
 dynamic_reconfigure/ConfigDescription
 dynamic_reconfigure/Config
@@ -12,9 +15,6 @@ dynamic_reconfigure/Config
 sensor_msgs/CameraInfo
 sensor_msgs/CameraInfo
 sensor_msgs/Image
-sensor_msgs/CompressedImage
-dynamic_reconfigure/ConfigDescription
-dynamic_reconfigure/Config
 sensor_msgs/CompressedImage
 dynamic_reconfigure/ConfigDescription
 dynamic_reconfigure/Config

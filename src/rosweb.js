@@ -1,5 +1,5 @@
 //modules
-var read=require("./read.js");
+//var read=require("./read.js");
 console.log("reading roslibjs");
 var ROSLIB = require("./roslibjs/src/RosLibNode.js");
 //var AsyncEventEmitter = require("async-eventemitter");
@@ -7,12 +7,38 @@ var events= require("events");
 var event = new events.EventEmitter();
 console.log("reading async");
 //variables
-var rostopics = new Array(read.topic_len);
-var rosmessage = new Array(read.topic_len);
-for(var i =0; i < read.topic_len; i++){
+
+var fs = require('fs');
+var topic_path = "../config/rostopic.txt";
+var type_path = "../config/rostype.txt";
+console.log("started reading");
+var topics = [];
+var topics_len;
+var types=[];
+fs.readFile(topic_path,function(err,data){
+    topics=data.toString().split('\n');
+    topics_len=data.toString().split('\n').length -1;
+    console.log("reading"+topic_path);
+    for(var i =0; i < topics_len; i++){
+    console.log(topics[i]);
+    }
+});
+fs.readFile(type_path,function(err,data){
+    types=data.toString().split('\n');
+    console.log("reading"+type_path);
+    for(var i =0; i < topics_len; i++){
+    console.log(types[i]);
+    }
+});
+
+var rostopics = new Array(topics_len);
+var rosmessage = new Array(topics_len);
+for(var i =0; i < topics_len; i++){
     rosmessage[i] = new ROSLIB.Message();
 }
 //Establishing Connection
+
+
 
 var ros = new ROSLIB.Ros({
     url: 'ws://localhost:9090'
@@ -20,8 +46,8 @@ var ros = new ROSLIB.Ros({
 
 ros.on('connection', function(){
     console.log('Connected to websocket server.');
-    event.on("subscribe",function(
-	for(var i =0; i < read.topic_len;i++){
+    event.on("subscribe",function(){
+	for(var i =0; i < topics_len;i++){
 	    rostopics[i].subscribe(function(message){
 		rosmessage[i] = message;
 		console.log("subscribing "+rostopics[i]);
@@ -30,13 +56,15 @@ ros.on('connection', function(){
 		console.log("publishing "+rostopics[i]);
 	    });
 	}
-    );
+	event.emit("finished publishing and subscribing");
+	event.emit("done");
+    });
     event.on("create topic",function(){
-	for(var i =0; i < read.topic_len; i++){
+	for(var i =0; i < topics_len; i++){
 	    rostopics[i] = new ROSLIB.Topic({
 		ros:ros,
-		name:read.topics[i],
-		messageType:read.types[i]
+		name:topics[i],
+		messageType:types[i]
 	    });
 	}
 	console.log("created topic");
@@ -64,38 +92,3 @@ ros.on('close', function() {
     console.log('Connection to websocket server closed.');
 });
 
-
-//registering ROS topics
-/*
-async.series([
-    function(callback){
-	for(var i =0; i < read.topics_len; i++){
-	    rostopics[i] = new ROSLIB.Topic({
-		ros:ros,
-		name:read.topics[i],
-		messageType:read.types[i]
-	    });
-	}
-    },
-    function(callback){
-	for(var i =0; i < read.topics_len; i++){
-	    rostopics[i].subscribe(function(message){
-		rosmessage[i] = message;
-		console.log("subscribing "+rostopics[i]);
-		rostopics[i].unsubscribe();
-	    });
-	}
-    },
-    function(callback){
-	for(var i=0; i < read.topics_len; i++){
-	    rostopics[i].publish(rosmessage[i]);
-	    console.log("publishing "+rostopics[i]);
-	}
-    }
-],function(err,results){
-    if(err){
-	throw err;
-    }
-    console.log("series all done." + results);
-});
-*/

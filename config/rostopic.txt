@@ -4,6 +4,9 @@
 /ardrone/bottom/image_raw/compressed
 /ardrone/bottom/image_raw/compressed/parameter_descriptions
 /ardrone/bottom/image_raw/compressed/parameter_updates
+/ardrone/bottom/image_raw/compressedDepth
+/ardrone/bottom/image_raw/compressedDepth/parameter_descriptions
+/ardrone/bottom/image_raw/compressedDepth/parameter_updates
 /ardrone/bottom/image_raw/theora
 /ardrone/bottom/image_raw/theora/parameter_descriptions
 /ardrone/bottom/image_raw/theora/parameter_updates
@@ -15,9 +18,6 @@
 /ardrone/front/image_raw/compressed
 /ardrone/front/image_raw/compressed/parameter_descriptions
 /ardrone/front/image_raw/compressed/parameter_updates
-/ardrone/front/image_raw/compressedDepth
-/ardrone/front/image_raw/compressedDepth/parameter_descriptions
-/ardrone/front/image_raw/compressedDepth/parameter_updates
 /ardrone/front/image_raw/theora
 /ardrone/front/image_raw/theora/parameter_descriptions
 /ardrone/front/image_raw/theora/parameter_updates
