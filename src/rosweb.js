@@ -51,10 +51,10 @@ ros.on('connection', function(){
 	    rostopics[i].subscribe(function(message){
 		rosmessage[i] = message;
 		console.log("subscribing "+rostopics[i]);
-		rostopics[i].unsubscribe();
-		rostopics[i].publish(rosmessage[i]);
 		console.log("publishing "+rostopics[i]);
+		rostopics[i].unsubscribe();
 	    });
+	    rostopics[i].publish(rosmessage[i]);
 	}
 	event.emit("finished publishing and subscribing");
 	event.emit("done");
