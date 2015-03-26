@@ -1,17 +1,9 @@
-//modules
-//var read=require("./read.js");
-console.log("reading roslibjs");
 var ROSLIB = require("./roslibjs/src/RosLibNode.js");
-//var AsyncEventEmitter = require("async-eventemitter");
 var events= require("events");
 var event = new events.EventEmitter();
-console.log("reading async");
-//variables
-
 var fs = require('fs');
 var topic_path = "../config/rostopic.txt";
 var type_path = "../config/rostype.txt";
-console.log("started reading");
 var topics = [];
 var topics_len;
 var types=[];
@@ -30,20 +22,15 @@ fs.readFile(type_path,function(err,data){
     console.log(types[i]);
     }
 });
-
 var rostopics = new Array(topics_len);
 var rosmessage = new Array(topics_len);
 for(var i =0; i < topics_len; i++){
     rosmessage[i] = new ROSLIB.Message();
 }
 //Establishing Connection
-
-
-
 var ros = new ROSLIB.Ros({
     url: 'ws://localhost:9090'
 });
-
 ros.on('connection', function(){
     console.log('Connected to websocket server.');
     event.on("subscribe",function(){
@@ -80,15 +67,11 @@ ros.on('connection', function(){
     }
     async(function(){
 	console.log("finished callback");
-    });
-    
+    }); 
 });
-
 ros.on('error', function(error) {
     console.log('Error connecting to websocket server: ', error);
 });
-
 ros.on('close', function() {
     console.log('Connection to websocket server closed.');
 });
-
