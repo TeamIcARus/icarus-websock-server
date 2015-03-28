@@ -1,0 +1,75 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   '-g',
+1 verbose cli   'install',
+1 verbose cli   'websocket-server' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink /usr/bin/node
+5 verbose cache add [ 'websocket-server', null ]
+6 verbose cache add name=undefined spec="websocket-server" args=["websocket-server",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'websocket-server',
+7 verbose parsed url   path: 'websocket-server',
+7 verbose parsed url   href: 'websocket-server' }
+8 silly lockFile c1a6b386-websocket-server websocket-server
+9 verbose lock websocket-server /home/kendemu/.npm/c1a6b386-websocket-server.lock
+10 silly lockFile c1a6b386-websocket-server websocket-server
+11 silly lockFile c1a6b386-websocket-server websocket-server
+12 verbose addNamed [ 'websocket-server', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile e7aeb222-websocket-server websocket-server@
+15 verbose lock websocket-server@ /home/kendemu/.npm/e7aeb222-websocket-server.lock
+16 silly addNameRange { name: 'websocket-server', range: '*', hasData: false }
+17 verbose request where is /websocket-server
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id 280d9f77d52d5f1c
+20 verbose url raw /websocket-server
+21 verbose url resolving [ 'https://registry.npmjs.org/', './websocket-server' ]
+22 verbose url resolved https://registry.npmjs.org/websocket-server
+23 verbose request where is https://registry.npmjs.org/websocket-server
+24 info trying registry request attempt 1 at 11:39:08
+25 http GET https://registry.npmjs.org/websocket-server
+26 http 404 https://registry.npmjs.org/websocket-server
+27 silly registry.get cb [ 404,
+27 silly registry.get   { date: 'Sat, 28 Mar 2015 02:39:08 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     etag: '"F381D8VP24EBC298S1SXDCCP9"',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '1689',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-nrt6122-NRT',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1427510348.717455,VS0,VE202',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly lockFile e7aeb222-websocket-server websocket-server@
+29 silly lockFile e7aeb222-websocket-server websocket-server@
+30 error 404 Not Found
+30 error 404
+30 error 404 'websocket-server' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Linux 3.13.0-45-generic
+32 error command "/usr/bin/node" "/usr/bin/npm" "-g" "install" "websocket-server"
+33 error cwd /home/kendemu/kensei_workspace/drone_workspace/icarus-websock-server/src/browser-exec/server
+34 error node -v v0.10.33
+35 error npm -v 1.4.28
+36 error code E404
+37 verbose exit [ 1, true ]

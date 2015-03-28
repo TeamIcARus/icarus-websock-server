@@ -1,12 +1,15 @@
-var ROSLIB = require("./roslibjs/src/RosLibNode.js");
+var ROSLIB = require("../roslibjs/src/RosLibNode.js");
 var events= require("events");
 var event = new events.EventEmitter();
 var fs = require('fs');
-var topic_path = "../config/rostopic.txt";
-var type_path = "../config/rostype.txt";
+var topic_path = "../..//config/rostopic.txt";
+var type_path = "../../config/rostype.txt";
+var server_path="../../config/server.txt";
 var topics = [];
 var topics_len;
 var types=[];
+
+var server_ip="localhost",server_port="9090";
 fs.readFile(topic_path,function(err,data){
     topics=data.toString().split('\n');
     topics_len=data.toString().split('\n').length -1;
@@ -22,14 +25,14 @@ fs.readFile(type_path,function(err,data){
     console.log(types[i]);
     }
 });
-var rostopics = new Array(topics_len);
-var rosmessage = new Array(topics_len);
+var rostopics = [];
+var rosmessage = [];
 for(var i =0; i < topics_len; i++){
     rosmessage[i] = new ROSLIB.Message();
 }
 //Establishing Connection
 var ros = new ROSLIB.Ros({
-    url: 'ws://localhost:9090'
+    url: 'ws://'+ server_ip+ ':' + server_port
 });
 ros.on('connection', function(){
     console.log('Connected to websocket server.');

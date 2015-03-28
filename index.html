@@ -6,8 +6,21 @@
 <body>
 <h1>Publishing ROS web topics</h1>
 <p>Check the Web Console output.</p>
-<script src="./src/roslibjs/src/RosLibNode.js" type="text/javascript"></script>
-<script src="./src/read.js" type="text/javascript"></script>
-<script src="./src/rosweb.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+<script type="text/javascript" src="http://cdn.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+
+<script type="text/javascript" type="text/javascript">
+var ros = new ROSLIB.Ros({
+url : 'ws://localhost:9090'
+});
+ros.on('connection', function() {
+console.log('Connected to websocket server.');
+});
+ros.on('error', function(error) {
+console.log('Error connecting to websocket server: ', error);
+});
+ros.on('close', function() {
+console.log('Connection to websocket server closed.');
+});
 </body>
 </html>
