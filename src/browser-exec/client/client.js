@@ -8,14 +8,16 @@ window.onload = function() {
 	topic_data= event.data.split("\n");
 	topic_len = topic_data.length;
 	for(var i = 0; i < topic_len; i++){
-	    topics = topic_data[i];
+	    topics[i] = topic_data[i];
+	    console.log(topics[i]);
 	}
     }
     socket_type.onmessage=function(event){
 	type_data = event.data.split("\n");
 	type_len = event.data.split("\n");
 	for(var i = 0; i< type_len; i++){
-	    type = type_data[i];
+	    type[i] = type_data[i];
+	    console.log(topics);
 	}
     }
     var ros = new ROSLIB.Ros({
