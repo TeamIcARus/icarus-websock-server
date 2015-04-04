@@ -34,9 +34,21 @@ window.onload = function() {
 	url:"ws://localhost:9090"
     });
     
-    ros.on("connection",function(){
+    imagetopic = new ROSLIB.Topic({
+	ros:ros,
+        name:topics[28],
+	mesageType:type[28]
+    });
+    
+    imagetopic.subscribe(function(message){
+        rosmessage[28]=message;
+        console.log("subscribing"+topics[28]);
+        console.log(message.data);
+	imagetopic.unsubscribe();
+    });
+    
+    ros.on("connection",function(){	
 	console.log("Connected to websocket server.");
-	rosevent.emit('rosevent');
     });
     ros.on('error', function(error) {
 	console.log('Error connecting to websocket server: ', error);
@@ -45,22 +57,5 @@ window.onload = function() {
     ros.on('close', function() {
 	console.log('Connection to websocket server closed.');
     });
-    
-    for(var i =0; i < topics_len;i++){
-	rostopics[i] = new ROSLIB.Topic({
-	    ros:ros,
-	    name:topics[i],
-	    mesageType:types[i]
-        });
-    }
-    
-    for(var i=0; i< topics_len;i++){
-        rostopics[i].subscribe(function(message){
-	    rosmessage[i]=message;
-		console.log("subscribing"+rostopics[i]);
-	    console.log(message.data);
-	    rostopics[i].unsubscribe();
-        });
-    }    
 }
 

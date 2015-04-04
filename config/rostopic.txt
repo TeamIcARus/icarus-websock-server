@@ -4,6 +4,12 @@
 /ardrone/bottom/image_raw/compressed
 /ardrone/bottom/image_raw/compressed/parameter_descriptions
 /ardrone/bottom/image_raw/compressed/parameter_updates
+/ardrone/bottom/image_raw/compressedDepth
+/ardrone/bottom/image_raw/compressedDepth/parameter_descriptions
+/ardrone/bottom/image_raw/compressedDepth/parameter_updates
+/ardrone/bottom/image_raw/theora
+/ardrone/bottom/image_raw/theora/parameter_descriptions
+/ardrone/bottom/image_raw/theora/parameter_updates
 /ardrone/bottom/parameter_descriptions
 /ardrone/bottom/parameter_updates
 /ardrone/camera_info
