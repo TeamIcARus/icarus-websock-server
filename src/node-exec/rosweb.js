@@ -37,15 +37,17 @@ var ros = new ROSLIB.Ros({
 ros.on('connection', function(){
     console.log('Connected to websocket server.');
     event.on("subscribe",function(){
-	for(var i =0; i < topics_len;i++){
-	    rostopics[i].subscribe(function(message){
-		rosmessage[i] = message;
-		console.log("subscribing "+rostopics[i]);
-		console.log("publishing "+rostopics[i]);
-		rostopics[i].unsubscribe();
+	//for(var i =0; i < topics_len;i++){
+	    
+	    rostopics[28].subscribe(function(message){
+		rosmessage[28] = message;
+		console.log(message);
+		console.log("subscribing "+rostopics[28]);
+		console.log("publishing "+rostopics[28]);
+		rostopics[28].unsubscribe();
 	    });
-	    rostopics[i].publish(rosmessage[i]);
-	}
+	    //rostopics[i].publish(rosmessage[i]);
+	//}
 	event.emit("finished publishing and subscribing");
 	event.emit("done");
     });
