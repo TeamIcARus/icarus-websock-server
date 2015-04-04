@@ -1,23 +1,14 @@
-var sys = require("util");
-var fs = require("fs");
-var type_path = "../../config/rostype.txt";
-var ws = require("websocket.io");
-var server = ws.listen(10081,
-                       function(){
-                           console.log("ws start");
-                       });
-
-server.on("connection",
-          function(socket) {
-              socket.on("message",
-                        function(data) {
-                            fs.watchFile(type_path,readFile);
-                        });
-          });
-
-fs.readFile(type_path,"UTF-8",function(err,data){
-    server.clients.forEach(
-            function(client) {
-		client.send(data);
-            });
+var ws=require("websocket.io");
+var fs=require("fs");
+var port=10081;
+var type_path="../../../config/rostype.txt";
+var server=ws.listen(port,function(){
+    console.log("Type Server running");
+});
+server.on('connection',function(client){
+    console.log("connection start");
+    fs.readFile(type_path,"UTF-8",function(err,data){
+        client.send(data);
+        console.log(data);
     });
+});

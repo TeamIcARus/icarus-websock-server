@@ -4,20 +4,26 @@ var topics = [], type =[], topics_len, type_len;
 window.onload = function() {
     socket_topic = new WebSocket("ws://localhost:10080");
     socket_type = new WebSocket("ws://localhost:10081");
-    socket_topic.onmessage = function(event) {
+    socket_topic.onopen=function(event){
+	console.log("Websocket topic server open");
+    };
+    socket_type.onopen=function(event){
+	console.log("Websocket type server open");
+    }
+    socket_topic.onmessage=function(event){
 	topic_data= event.data.split("\n");
 	topic_len = topic_data.length;
 	for(var i = 0; i < topic_len; i++){
 	    topics[i] = topic_data[i];
-	    console.log(topics[i]);
+	    console.log("topics "+i +":"+topics[i]);
 	}
     }
     socket_type.onmessage=function(event){
 	type_data = event.data.split("\n");
-	type_len = event.data.split("\n");
+	type_len = type_data.length;
 	for(var i = 0; i< type_len; i++){
 	    type[i] = type_data[i];
-	    console.log(topics);
+	    console.log("types "+i+":"+type[i]);
 	}
     }
     var ros = new ROSLIB.Ros({
@@ -32,6 +38,6 @@ window.onload = function() {
     });
     
     ros.on('close', function() {
-    console.log('Connection to websocket server closed.');
-  });
+	console.log('Connection to websocket server closed.');
+    });
 }
