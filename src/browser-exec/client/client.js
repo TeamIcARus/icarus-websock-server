@@ -12,7 +12,7 @@ window.onload = function() {
     }
     socket_topic.onmessage=function(event){
 	topic_data= event.data.split("\n");
-	topic_len = topic_data.length;
+	topic_len = topic_data.length-1;
 	for(var i = 0; i < topic_len; i++){
 	    topics[i] = topic_data[i];
 	    console.log("topics "+i +":"+topics[i]);
@@ -20,7 +20,7 @@ window.onload = function() {
     }
     socket_type.onmessage=function(event){
 	type_data = event.data.split("\n");
-	type_len = type_data.length;
+	type_len = type_data.length-1;
 	for(var i = 0; i< type_len; i++){
 	    type[i] = type_data[i];
 	    console.log("types "+i+":"+type[i]);
