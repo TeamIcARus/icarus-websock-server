@@ -45,6 +45,7 @@ ros.on('connection',function(){
 		rostopics[i].unsubscribe();
             });
 	}
+	console.log("finished subscribe");
 	signal.emit("finished publishing and subscribing");
 	signal.emit("done");
     });

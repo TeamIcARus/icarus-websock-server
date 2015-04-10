@@ -1,0 +1,2 @@
+closure complier from google 
+we use closure complier to minify js
