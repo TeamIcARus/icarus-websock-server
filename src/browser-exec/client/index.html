@@ -1,41 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8"/>
+  <head>
+    <meta charset="utf-8"/>
     <script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
-  <script type="text/javascript" src="http://cdn.robotwebtools.org/roslibjs/cur
-rent/roslib.min.js"></script>
-     <script type="text/javascript">
-      var ros = new ROSLIB.Ros({
-      url : 'ws://localhost:9090'
-      });
-      ros.on("connection",function(){
-       var listener = new ROSLIB.Topic({
-      ros : ros,
-      name : '/ardrone/image_raw',
-      messageType:'sensor_msgs/Image'
-      });
-      listener.subscribe(function(message){
-      console.log('Received message on ' + listener.name + ': ' + message.data);
-      listener.unsubscribe();
-      });
-
-      console.log("connected to rostopic server");
-      
-      });
-      
-      var listener = new ROSLIB.Topic({
-      ros : ros,
-      name : '/ardrone/image_raw',
-      messageType:'sensor_msgs/Image'
-      });
-      listener.subscribe(function(message){
-      console.log('Received message on ' + listener.name + ': ' + message.data);
-      listener.unsubscribe();
-      });
-     </script>
-</head>
-<body>
-  <h1>ros topics</h1>
-</body>
+    <script type="text/javascript" src="http://cdn.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+    <script type="text/javascript" src="client.js"></script>
+  </head>
+  <body>
+    <h1>ros topics</h1>
+  </body>
 </html>

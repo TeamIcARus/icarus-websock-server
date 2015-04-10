@@ -1,0 +1,168 @@
+reading../..//config/rostopic.txt
+/altimeter
+/ardrone/bottom/camera_info
+/ardrone/bottom/image_raw
+/ardrone/bottom/image_raw/compressed
+/ardrone/bottom/image_raw/compressed/parameter_descriptions
+/ardrone/bottom/image_raw/compressed/parameter_updates
+/ardrone/bottom/image_raw/compressedDepth
+/ardrone/bottom/image_raw/compressedDepth/parameter_descriptions
+/ardrone/bottom/image_raw/compressedDepth/parameter_updates
+/ardrone/bottom/image_raw/theora
+/ardrone/bottom/image_raw/theora/parameter_descriptions
+/ardrone/bottom/image_raw/theora/parameter_updates
+/ardrone/bottom/parameter_descriptions
+/ardrone/bottom/parameter_updates
+/ardrone/camera_info
+/ardrone/front/camera_info
+/ardrone/front/image_raw
+/ardrone/front/image_raw/compressed
+/ardrone/front/image_raw/compressed/parameter_descriptions
+/ardrone/front/image_raw/compressed/parameter_updates
+/ardrone/front/image_raw/compressedDepth
+/ardrone/front/image_raw/compressedDepth/parameter_descriptions
+/ardrone/front/image_raw/compressedDepth/parameter_updates
+/ardrone/front/image_raw/theora
+/ardrone/front/image_raw/theora/parameter_descriptions
+/ardrone/front/image_raw/theora/parameter_updates
+/ardrone/front/parameter_descriptions
+/ardrone/front/parameter_updates
+/ardrone/image_raw
+/ardrone/image_raw/compressed
+/ardrone/image_raw/compressed/parameter_descriptions
+/ardrone/image_raw/compressed/parameter_updates
+/ardrone/image_raw/compressedDepth
+/ardrone/image_raw/compressedDepth/parameter_descriptions
+/ardrone/image_raw/compressedDepth/parameter_updates
+/ardrone/image_raw/theora
+/ardrone/image_raw/theora/parameter_descriptions
+/ardrone/image_raw/theora/parameter_updates
+/ardrone/imu
+/ardrone/land
+/ardrone/navdata
+/ardrone/predictedPose
+/ardrone/reset
+/ardrone/takeoff
+/clock
+/cmd_vel
+/drone_stateestimation/parameter_descriptions
+/drone_stateestimation/parameter_updates
+/fix
+/fix_velocity
+/gazebo/link_states
+/gazebo/model_states
+/gazebo/parameter_descriptions
+/gazebo/parameter_updates
+/gazebo/set_link_state
+/gazebo/set_model_state
+/ground_truth/state
+/joint_states
+/magnetic
+/pressure_height
+/rosout
+/rosout_agg
+/sonar_height
+/tf
+/tum_ardrone/com
+reading../../config/rostype.txt
+cvg_sim_msgs/Altimeter
+sensor_msgs/CameraInfo
+sensor_msgs/Image
+sensor_msgs/CompressedImage
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+sensor_msgs/CompressedImage
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+theora_image_transport/Packet
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+sensor_msgs/CameraInfo
+sensor_msgs/CameraInfo
+sensor_msgs/Image
+sensor_msgs/CompressedImage
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+sensor_msgs/CompressedImage
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+theora_image_transport/Packet
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+sensor_msgs/Image
+sensor_msgs/CompressedImage
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+sensor_msgs/CompressedImage
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+theora_image_transport/Packet
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+sensor_msgs/Imu
+std_msgs/Empty
+ardrone_autonomy/Navdata
+tum_ardrone/filter_state
+std_msgs/Empty
+std_msgs/Empty
+rosgraph_msgs/Clock
+geometry_msgs/Twist
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+sensor_msgs/NavSatFix
+geometry_msgs/Vector3Stamped
+gazebo_msgs/LinkStates
+gazebo_msgs/ModelStates
+dynamic_reconfigure/ConfigDescription
+dynamic_reconfigure/Config
+gazebo_msgs/LinkState
+gazebo_msgs/ModelState
+nav_msgs/Odometry
+sensor_msgs/JointState
+geometry_msgs/Vector3Stamped
+geometry_msgs/PointStamped
+rosgraph_msgs/Log
+rosgraph_msgs/Log
+sensor_msgs/Range
+tf2_msgs/TFMessage
+std_msgs/String
+Connected to websocket server.
+created topic
+finished callback
+{ roi: 
+   { width: 0,
+     do_rectify: false,
+     y_offset: 0,
+     x_offset: 0,
+     height: 0 },
+  D: [ 0, 0, 0, 0, 0 ],
+  P: 
+   [ 374.6706070969281,
+     0,
+     320.5,
+     0,
+     0,
+     374.6706070969281,
+     180.5,
+     0,
+     0,
+     0,
+     1,
+     0 ],
+  width: 640,
+  K: [ 374.6706070969281, 0, 320.5, 0, 374.6706070969281, 180.5, 0, 0, 1 ],
+  height: 360,
+  header: 
+   { stamp: { secs: 707, nsecs: 173000000 },
+     frame_id: 'ardrone_base_bottomcam',
+     seq: 1730 },
+  R: [ 1, 0, 0, 0, 1, 0, 0, 0, 1 ],
+  binning_y: 0,
+  binning_x: 0,
+  distortion_model: 'plumb_bob' }
+subscribing [object Object]
+publishing [object Object]

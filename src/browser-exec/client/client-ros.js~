@@ -1,0 +1,18 @@
+var ros = new ROSLIB.Ros({
+    url:"ws://localhost:9090"
+});
+ros.connect('ws://localhost:9090'); 
+ros.on('open',function(){
+    rostopics[28] = new ROSLIB.Topic({
+	ros:ros,
+	name:topics[28],
+	mesageType:types[28]
+    });
+    rostopics[28].subscribe(function(message){
+	rosmessage[28]=message;
+	console.log("subscribing"+rostopics[28]);
+	console.log(message.data);
+	rostopics[28].unsubscribe();
+    });     
+    console.log(rostopics[28]);
+});
