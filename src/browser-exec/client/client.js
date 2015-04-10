@@ -1,7 +1,6 @@
 var topic_data,type_data;
 var topics = [], type =[], topics_len, type_len;
 var rostopics=[],rosmessage=[];
-
 var signal = new EventEmitter2();
 socket_topic = new WebSocket("ws://localhost:10080");
 socket_type = new WebSocket("ws://localhost:10081");
@@ -37,20 +36,38 @@ var ros = new ROSLIB.Ros({
 });
 ros.on('connection',function(){
     console.log("Connected to websocket server.");
-    roscom();
+    signal.on("subscribe",function(){
+	for(var i = 0; i < topics_len; i++){
+            rostopics[i].subscribe(function(message){
+		rosmessage[i]=message;
+		console.log("subscribing"+rostopics[i]);
+		console.log(message.data);
+		rostopics[i].unsubscribe();
+            });
+	}
+	signal.emit("finished publishing and subscribing");
+	signal.emit("done");
+    });
+    signal.on("create topic",function(){
+	for(var i = 0; i < topics_len; i++){
+            rostopics[i] = new ROSLIB.Topic({
+		ros:ros,
+		name:topics[i],
+		messageType:type[i]
+            });
+	}
+        console.log("created topic");
+    });
+    var async = function(cb){
+	signal.on("done",cb);
+	process.nextTick(function(){
+	    signal.emit("create topic");
+	    process.nextTick(function(){
+		signal.emit("subscribe");
+		});
+	});
+    };
+    async(function(){
+	console.log("finished callback");
+    });
 });
-var roscom = function(){
-    rostopics[27] = new ROSLIB.Topic({
-	ros:ros,
-	name:topics[27],
-	messageType:type[27]
-    });
-    
-    rostopics[27].subscribe(function(message){
-	rosmessage[27]=message;
-	console.log("subscribing"+rostopics[27]);
-	console.log(message.data);
-	rostopics[27].unsubscribe();
-    console.log("subscribing"+rostopics[27]);
-    });
-};
